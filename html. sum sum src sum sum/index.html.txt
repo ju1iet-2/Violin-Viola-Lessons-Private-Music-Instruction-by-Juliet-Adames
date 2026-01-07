@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harmony Strings - Violin & Viola Lessons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-blue-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-blue-100 shadow p-6 flex justify-between items-center">
+    <h1 class="text-3xl font-bold text-blue-800">Harmony Strings</h1>
+    <nav class="space-x-6">
+      <a href="#lessons" class="text-blue-700 hover:underline">Lessons</a>
+      <a href="#about" class="text-blue-700 hover:underline">About</a>
+      <a href="#contact" class="text-blue-700 hover:underline">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Image Banner -->
+  <section class="relative text-center py-20 bg-blue-100" style="background-image: url('https://images.unsplash.com/photo-1584270354949-1a0d2a15a13c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-blue-100 bg-opacity-60"></div>
+    <div class="relative z-10">
+      <h2 class="text-4xl font-extrabold text-blue-900 drop-shadow">Violin & Viola Lessons</h2>
+      <p class="mt-4 text-lg text-blue-800 drop-shadow">Personalized instruction for all ages and skill levels. Learn to play with confidence and joy.</p>
+      <button class="mt-6 px-6 py-3 bg-blue-500 text-white rounded-2xl shadow hover:bg-blue-600 transition">Book Your Lesson</button>
+    </div>
+  </section>
+
+  <!-- Lessons Section -->
+  <section id="lessons" class="p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="bg-white rounded-2xl shadow p-6">
+      <h3 class="text-2xl font-bold text-blue-800">Violin Lessons</h3>
+      <p class="mt-2 text-blue-700">Explore classical technique, modern repertoire, and develop your unique sound with tailored sessions.</p>
+    </div>
+    <div class="bg-white rounded-2xl shadow p-6">
+      <h3 class="text-2xl font-bold text-blue-800">Viola Lessons</h3>
+      <p class="mt-2 text-blue-700">Dive into the rich tones of the viola while building solid fundamentals and expressive artistry.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-blue-100 py-12 text-center">
+    <h3 class="text-3xl font-bold text-blue-900">About the Instructor</h3>
+    <p class="mt-4 max-w-2xl mx-auto text-blue-700">With over 10 years of teaching experience, I am dedicated to guiding each student on their musical journey. Whether you are a beginner or preparing for advanced auditions, lessons are designed to match your goals.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="p-10 text-center">
+    <h3 class="text-3xl font-bold text-blue-900">Get in Touch</h3>
+    <p class="mt-2 text-blue-700">Ready to start your lessons? Reach out today!</p>
+    <form class="mt-6 max-w-md mx-auto bg-blue-50 rounded-2xl shadow p-6 space-y-4">
+      <input type="text" placeholder="Name" class="w-full p-3 rounded-xl border border-blue-200" />
+      <input type="email" placeholder="Email" class="w-full p-3 rounded-xl border border-blue-200" />
+      <textarea placeholder="Message" rows="4" class="w-full p-3 rounded-xl border border-blue-200"></textarea>
+      <button type="submit" class="w-full py-3 bg-blue-500 text-white rounded-2xl hover:bg-blue-600 transition">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-100 text-center py-6 mt-10">
+    <p class="text-blue-700">&copy; <span id="year"></span> Harmony Strings. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

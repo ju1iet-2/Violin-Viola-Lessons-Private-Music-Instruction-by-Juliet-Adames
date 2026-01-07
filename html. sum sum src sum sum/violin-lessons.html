@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Violin & Viola Lessons | Private Music Instruction by Juliet Adames</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+
+.gradient-text {
+  background: linear-gradient(0deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: waveGradient 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatText {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.gradient-text {
+  background: linear-gradient(0deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: waveGradient 6s ease-in-out infinite alternate, floatText 3s ease-in-out infinite;
+}
+
+
+@keyframes waveGradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Gradient animation */
+.gradient-bg {
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 800% 800%;
+  animation: gradientMove 15s ease infinite;
+  filter: blur(80px); /* optional: soft glow */
+  opacity: 0.7;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Optional: Gradient text shimmer effect */
+.gradient-text {
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 10s ease infinite;
+}
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+    #backToTop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-blue-50 text-gray-800">
+<header class="bg-blue-100 shadow p-6 flex justify-between items-center sticky top-0 z-50">
+
+  <h1 class="text-3xl font-bold text-blue-800">
+    JulietAdamesLessons
+  </h1>
+
+  <!-- Desktop Nav -->
+  <nav class="hidden md:flex space-x-6">
+    <a href="#" onclick="showSection('home')" class="text-blue-700 hover:underline">Home</a>
+    <a href="#" onclick="showSection('lessons')" class="text-blue-700 hover:underline">Lessons</a>
+    <a href="#" onclick="showSection('about')" class="text-blue-700 hover:underline">About</a>
+    <a href="#" onclick="showSection('experience')" class="text-blue-700 hover:underline">Experience</a>
+    <a href="#" onclick="showSection('gallery')" class="text-blue-700 hover:underline">Gallery</a>
+    <a href="#" onclick="showSection('contact')" class="text-blue-700 hover:underline">Contact</a>
+  </nav>
+
+  <!-- Mobile Menu Button -->
+  <button id="menuBtn"
+          class="md:hidden text-blue-800 text-3xl focus:outline-none">
+    ☰
+  </button>
+
+</header>
+
+<div id="mobileMenu"
+     class="fixed top-0 left-0 w-full h-full bg-blue-100 z-40
+            transform -translate-y-full transition-transform duration-500
+            md:hidden">
+
+  <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl font-semibold text-blue-800">
+    <a href="#" onclick="navigateMobile('home')">Home</a>
+    <a href="#" onclick="navigateMobile('lessons')">Lessons</a>
+    <a href="#" onclick="navigateMobile('about')">About</a>
+    <a href="#" onclick="navigateMobile('experience')">Experience</a>
+    <a href="#" onclick="navigateMobile('gallery')">Gallery</a>
+    <a href="#" onclick="navigateMobile('contact')">Contact</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- Hero/Home Section -->
+<section id="home" class="page-section relative text-center py-20 overflow-hidden">
+  <!-- Gradient Background -->
+  <div class="absolute inset-0">
+    <div class="gradient-bg absolute inset-0"></div>
+  </div>
+
+  <!-- Overlay to darken for text readability -->
+  <div class="absolute inset-0 bg-blue-900 bg-opacity-50"></div>
+
+  <div class="relative z-10 fade-section">
+    <h2 class="text-5xl font-extrabold text-white drop-shadow">
+    Violin & Viola Lessons
+   </h2>
+
+    <p class="mt-4 text-lg text-blue-100 drop-shadow">
+      Personalized instruction for all. Learn to play with confidence and joy.
+    </p>
+    <button onclick="showSection('contact')"
+            class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-2xl shadow hover:bg-blue-600 transition">
+      Contact Me 🎻
+    </button>
+  </div>
+</section>
+
+ <section id="home" class="page-section relative text-center py-20 hero-bg"
+         style="background-image: url('https://images.unsplash.com/photo-1584270354949-1a0d2a15a13c?auto=format&fit=crop&w=1400&q=80');">
+  
+  <div class="absolute inset-0 bg-blue-900 bg-opacity-50"></div>
+
+  <div class="relative z-10 fade-section">
+    <h2 class="text-5xl font-extrabold text-white drop-shadow scroll-text">
+      Violin & Viola Lessons
+    </h2>
+    <p class="mt-4 text-lg text-blue-100 drop-shadow">
+      Personalized instruction for all. Learn to play with confidence and joy.
+    </p>
+    <button onclick="showSection('contact')"
+      class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-2xl shadow hover:bg-blue-600 transition">
+      Contact Me 🎻
+    </button>
+  </div>
+</section>
+
+
+
+  <!-- Lessons -->
+  <section id="lessons" class="page-section p-10 grid grid-cols-1 md:grid-cols-2 gap-8 fade-section bg-white">
+    <div class="bg-blue-50 rounded-2xl shadow p-6 transform transition hover:scale-105 hover:shadow-lg">
+      <h3 class="flex items-center text-2xl font-bold text-blue-800">
+        𝄡 Prices 𝄡
+      </h3>
+      <ul class="mt-2 text-blue-700 space-y-1">
+        <li>1 hour – $30 ♫</li>
+        <li>45 minutes – $25 ♫</li>
+        <li>30 minutes – $15 ♫</li>
+      </ul>
+    </div>
+    <div class="bg-blue-50 rounded-2xl shadow p-6 transform transition hover:scale-105 hover:shadow-lg">
+      <h3 class="flex items-center text-2xl font-bold text-blue-800">
+        𝄞 Availability 𝄞
+      </h3>
+      <p class="mt-2 text-blue-700">Lessons are available virtually and in-person!</p>
+      <p class="mt-2 text-blue-700">I am available every day of the week! On weekdays, I am unavailable before 3 pm (subject to change). On weekends, I am available from 8 am – 10 pm (subject to change). I am very flexible with days and times for lessons to take place.</p>
+<p class="mt-2 text-blue-700">Virtual lessons can be held on FaceTime or another platform of your choice. In-person lessons may be held at the student’s home or mine (details discussed when arranging lessons).</p>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="page-section bg-blue-100 py-16 text-center fade-section">
+    <h3 class="text-3xl font-bold text-blue-900 mb-4">About the Instructor</h3>
+    <p class="max-w-2xl mx-auto text-blue-800">
+      With over 6 years of experience, I am dedicated to guiding each student on their musical journey. Whether you are a beginner or preparing for NYSSMA, lessons are designed to match your goals and aspirations. My main goal is to help you succeed!
+<!-- Socials -->
+<div class="mt-10">
+  <h4 class="text-2xl font-bold text-blue-900 mb-4">
+    Connect With Me
+  </h4>
+
+  <div class="flex justify-center gap-6">
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/ju1iet._.2" target="_blank"
+       class="bg-white p-4 rounded-full shadow hover:scale-110 transition">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+           alt="Instagram"
+           class="w-8 h-8">
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:julietadames052@gmail.com"
+       class="bg-white p-4 rounded-full shadow hover:scale-110 transition">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+           alt="Email"
+           class="w-8 h-8">
+    </a>
+
+  </div>
+</div>
+
+    </p>
+  </section>
+
+  <!-- Musical Expirience -->
+  <section id="experience" class="page-section bg-white py-16 fade-section">
+    <h3 class="text-3xl font-bold text-center text-blue-900 mb-10">My Experience with Music</h3> 
+    <div class="max-w-5xl mx-auto text-center text-blue-800">
+       I started my music journey six years ago with the viola. Since then, I've had the privilege of performing in a variety of ensembles. I have proudly participated in both SCMEA (Suffolk County Music Educators' Association) festivals, earning 3rd chair, and LISFA (Long Island String Festival Association), achieving first chair and leading the viola section in my first year of participating in these festivals. Additionally, this year marks my 4th year participating in New York State School Music Association (NYSSMA) solos, where I attained a score of 99 on my most recent Level 5 solo. This year, I am preparing to perform a level six solo. I continue to participate in these special festivals throughout my music career. I picked up the violin over a year ago and now play the violin in my school's chamber orchestra. I am also a proud member of the Lindenhurst Marching Band since the spring of 2024, where I play the Baritone. This experience has built a foundation of understanding for wind instruments. Building on this foundation, I learned trombone and currently perform with my school's band. In my private practice, I enjoy playing the alto saxophone and am currently in the process of learning the trumpet and clarinet. Through these diverse musical experiences, I continue to develop my skills and foster my love for music.
+
+    </div>
+  </section>
+
+<!-- Gallery -->
+<section id="gallery" class="page-section bg-blue-50 py-16 fade-section">
+  <h3 class="text-3xl font-bold text-center text-blue-900 mb-10">
+    Performance Gallery
+  </h3>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
+    <img src="images/mbnationals2.jpg" alt="Performance 1"
+         onclick="openLightbox(this.src)"
+         class="rounded-2xl shadow hover:scale-105 transition cursor-pointer"
+         alt="Performance 1">
+
+
+    <img src="images/baritoneline3.jpg"
+         onclick="openLightbox(this.src)"         
+         class="rounded-2xl shadow hover:scale-105 transition cursor-pointer"
+         alt="Performance 2">
+
+
+    <img src="images/soloshotmadusa1.jpg" 
+         onclick="openLightbox(this.src)"
+         class="rounded-2xl shadow hover:scale-105 transition cursor-pointer"
+         alt="Performance 3">
+
+
+    <img src="images/chrorchvln4.jpeg" 
+         onclick="openLightbox(this.src)"
+         class="rounded-2xl shadow hover:scale-105 transition cursor-pointer"
+         alt="Performance 4">
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox"
+     class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50">
+  <img id="lightboxImg"
+       class="max-w-[90%] max-h-[90%] rounded-2xl shadow-lg">
+</div>
+
+  <!-- Contact -->
+  <section id="contact" class="page-section p-10 text-center fade-section bg-blue-100">
+    <h3 class="text-3xl font-bold text-blue-900">Get in Touch</h3>
+    <p class="mt-2 text-blue-700">Ready to start your musical journey? Reach out today!</p>
+
+    <form id="contactForm" action="https://formspree.io/f/xeolpyll" method="POST"
+          class="mt-6 max-w-md mx-auto bg-white rounded-2xl shadow p-6 space-y-4">
+      <input type="text" name="name" placeholder="Name" 
+             class="w-full p-3 rounded-xl border border-blue-200" required />
+      <input type="email" name="email" placeholder="Email" 
+             class="w-full p-3 rounded-xl border border-blue-200" required />
+      <textarea name="message" placeholder="Message" rows="4" 
+                class="w-full p-3 rounded-xl border border-blue-200" required></textarea>
+      <button type="submit"
+             class="w-full py-3 bg-blue-500 text-white rounded-2xl hover:bg-blue-600 transition">
+        Send Message
+     </button>
+    </form> 
+
+    <!-- Thank You Popup -->
+    <div id="thankYouPopup"
+         class="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden">
+      <div class="popup-card bg-white rounded-2xl p-8 text-center shadow-lg max-w-sm">
+        <h2 class="text-2xl font-bold text-blue-800">Thank You!</h2>
+        <p class="mt-4 text-blue-700">
+          Your message has been sent successfully. I will get back to you soon!
+        </p>
+        <button id="closePopup"
+                class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-2xl hover:bg-blue-600 transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-100 text-center py-6 fade-section">
+    <p class="text-blue-700">&copy; <span id="year"></span> JulietAdamesLessons. All rights reserved.</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop"
+          class="fixed bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600">
+    ↑ Top
+  </button>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll-triggered fade
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.fade-section').forEach(section => observer.observe(section));
+
+    // Back to Top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Thank-you popup logic
+    const form = document.getElementById('contactForm');
+    const popup = document.getElementById('thankYouPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const action = form.getAttribute('action');
+
+      fetch(action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(response => {
+          if (response.ok) {
+            popup.classList.remove('hidden');
+            form.reset();
+          } else {
+            alert('Oops! There was a problem submitting your form.');
+          }
+        })
+        .catch(() => alert('Oops! There was a problem submitting your form.'));
+    });
+
+    closeBtn.addEventListener('click', () => popup.classList.add('hidden'));
+
+    // Page switching logic
+    function showSection(id) {
+      document.querySelectorAll('.page-section').forEach(sec => {
+        sec.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+// Lightbox logic
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.classList.remove('hidden');
+}
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.add('hidden');
+});
+// Mobile menu logic
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('-translate-y-full');
+});
+
+// Close menu + navigate
+function navigateMobile(sectionId) {
+  mobileMenu.classList.add('-translate-y-full');
+  showSection(sectionId);
+}
+
+    // Show home first
+    showSection('home');
+// Hero Parallax Effect
+const hero = document.querySelector('#home');
+const heroText = document.querySelector('.scroll-text');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // Subtle parallax on background
+  hero.style.backgroundPositionY = `${scrollY * 0.3}px`;
+
+  // Haptic-style scroll movement for heading
+  heroText.style.transform = `translateY(${scrollY * 0.05}px)`;
+});
+
+  </script>
+</body>
+</html>
